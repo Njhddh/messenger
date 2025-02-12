@@ -1,0 +1,35 @@
+/* Кастомные стили для мессенджера */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+.jumbotron {
+    background-color: #e9ecef;
+    padding: 2rem;
+    border-radius: 0.5rem;
+}
+
+.card {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.card-subtitle {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+.card-text {
+    font-size: 1rem;
+}
+
+.input-group textarea {
+    resize: none;
+    height: 50px;
+}

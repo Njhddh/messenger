@@ -1,0 +1,47 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Чат{% endblock %}
+
+{% block content %}
+<div class="container-fluid h-100">
+    <div class="row h-100">
+        <!-- Список диалогов -->
+        <div class="col-md-3 bg-light p-3">
+            <h2>Диалоги</h2>
+            <ul class="list-group">
+                {% for dialog in dialogs %}
+                    <li class="list-group-item">
+                        <a href="{% url 'chat' dialog.id %}" class="text-decoration-none">Диалог {{ dialog.id }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Чат -->
+        <div class="col-md-9 d-flex flex-column h-100">
+            <div class="flex-grow-1 p-3 overflow-auto">
+                {% for message in messages %}
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ message.sender.username }}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ message.timestamp }}</h6>
+                            <p class="card-text">{{ message.text }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <!-- Поле ввода сообщения -->
+            <div class="p-3 bg-light">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        {{ form.text }}
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
