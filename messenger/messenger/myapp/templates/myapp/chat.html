@@ -1,6 +1,6 @@
 {% extends 'myapp/base.html' %}
 
-{% block title %}Главная страница{% endblock %}
+{% block title %}Чат{% endblock %}
 
 {% block content %}
 <div class="container-fluid h-100">
@@ -12,9 +12,9 @@
                 Новый диалог
             </button>
             <div class="list-group">
-                {% for dialog in dialogs %}
+                {% for dialog_data in dialogs_with_recipient %}
                     <a href="#" class="list-group-item list-group-item-action">
-                        Диалог с {{ dialog.participants.exclude(id=request.user.id).first.username }}
+                        Диалог с {{ dialog_data.recipient.username }}
                     </a>
                 {% empty %}
                     <p>Диалогов пока нет.</p>

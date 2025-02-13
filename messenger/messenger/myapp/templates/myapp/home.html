@@ -1,0 +1,13 @@
+{% extends 'myapp/base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Добро пожаловать в мессенджер!</h1>
+    <p class="lead">Общайтесь с друзьями и коллегами в реальном времени.</p>
+    <hr class="my-4">
+    <p>Начните общение прямо сейчас.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'chat' %}" role="button">Перейти к чату</a>
+</div>
+{% endblock %}
